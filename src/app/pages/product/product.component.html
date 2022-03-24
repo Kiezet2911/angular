@@ -1,0 +1,46 @@
+<div class="Product__Container">
+    <div class="Product__ListCategory">
+        <h4>THỂ LOẠI SẢN PHẨM</h4>
+        <ul *ngFor="let category of categories">
+            <li><a (click)="GetByChuDe(category._id)">{{category.TenChuDe}}</a></li>
+        </ul>
+    </div>
+    <div class="Product__ListProduct">
+        <div class="Product__ListProduct-Features">
+            <input type="text" class="form-control" (ngModelChange)="changeText($event)" placeholder="Search..."
+                [(ngModel)]="Search" />
+            <div class="Product__ListProduct-Sort">
+                <h4>Sắp xếp theo: </h4>
+                <mat-form-field appearance="fill">
+                    <mat-label>--Loại Sắp Xếp--</mat-label>
+                    <mat-select>
+                        <mat-option (click)="sort()">Giá Tăng Dần</mat-option>
+                        <mat-option (click)="sort2()">Giá Giảm Dần</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="Product__List" *ngIf="Messager !=null">
+            {{Messager}}
+        </div>
+        <div class="Product__List" *ngIf="Messager == '' ">
+            <div class="Book"
+                *ngFor="let book of Book |orderBy: key :reverse | filter: Search | paginate: { itemsPerPage: 8, currentPage: p }">
+                <div class="Book__Details" (click)="goDetails(book.id)">
+                    <div class="Book__Img">
+                        <img src="{{book.Anh}}" alt="">
+                    </div>
+                    <div class="Book__Content">
+                        <div class="Book__Content-BookName">
+                            <h3>{{book.Tensach}}</h3>
+                            <p class="Book__Content-Author">{{book.TenTG}}</p>
+                            <p class="Book__Content-Price">{{book.Giaban|number:'1.3'}}đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pagination-controls *ngIf="Messager == '' " class="my-pagination" (pageChange)="p = $event">
+        </pagination-controls>
+    </div>
+</div>

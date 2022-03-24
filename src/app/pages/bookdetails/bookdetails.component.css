@@ -1,0 +1,147 @@
+.container{
+    width: 100vw;
+    padding: 100px 0;
+    margin: 90px auto 80px auto;
+    height: max-content;
+    border: 1px solid rgba(145, 141, 141, 0.562);
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(145, 141, 141, 0.562);
+}
+    .Book__details{
+        width: 80%;
+        display: flex;
+        flex-flow: row wrap;
+        margin: 0 auto;
+        animation: toVisible 3s 1 ease-in-out forwards;
+    }
+        .Book__image{
+            width: 340px;
+            height: 400px;
+            margin-right: 50px;
+            overflow: hidden;
+            box-shadow: 0 0 5px 0 rgba(145, 141, 141, 0.562);
+        }
+            .Book__image img{
+                width: 100%;
+                height: 100%;
+            }
+    .Book__info{
+        width: 500px;
+        padding-top: 10px;
+    }
+        .Book__info-Name{
+            font-size: 23px;
+            font-weight: 700;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .Book__info-Author{
+            margin: 20px 0;
+        }
+        .Book__info-Price{
+            padding: 20px 0 20px 0;
+        }
+            .price{
+                font-size: 28px;
+                color: red;
+            }
+    .Book__info-Pay{
+        bottom: 0;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+        .Book__info-Count{
+            border: 1px solid gray;
+            margin-top: 10px;
+        }
+        .Book__info-Count,
+        .Book__info-Button{
+            width: max-content;
+        }
+            .Book__info-Button button{
+                border: none;
+                background-color: rgba(230, 228, 228, 0.562);
+            }
+            .Book__info-Button input{
+                border: none;
+                width: 50px;
+                text-align: center;
+            }
+        .Book__info-btnCart{
+            display: flex;
+            margin: 50px 0 50px 0;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 0, 0, 0.644);
+            color: white;
+            border-radius: .5rem;
+            width: 250px;
+            height: 40px;
+            cursor: pointer;
+            transition: 1s;
+        }
+            .Book__info-btnCart:hover{
+                background-color: red;
+                box-shadow: 0 0 10px 0 red;
+            }
+    .Book__info-About{
+        margin: 20px 0 20px 0;
+        display: flex;
+        flex-flow: column wrap;
+    }
+        .Book__info-About h3{
+            font-weight: 600;
+        }
+@media screen and (max-width:821px) {  
+    .Book__image,
+    .Book__info{
+        margin: 0 auto;
+    }
+    .Book__info{
+        margin-top: 40px;
+    }
+    .Book__info-Pay,
+    .Book__info-Price,
+    .Book__info-Name,
+    .Book__info-Author,
+    .Book__info-Publishing-company{
+        width: 100% !important;
+    }
+    
+}
+@media screen and (max-width: 413px) {
+    .container{
+        width: 100vw;
+    }
+    .Book__details{
+        width: 100% !important;
+        align-items: center;
+        justify-content: space-between;
+        flex-flow: column wrap !important;
+    }
+        .Book__image{
+            margin: 0;
+        }
+        .Book__info{
+            margin-top: 30px;
+            padding: 0px 20px 0 20px;
+            display: flex;
+            width: 100vw;
+            flex-flow: column wrap !important;
+        }
+            .Book__info-Name{
+                width: 100vw;
+            }
+        
+        .Book__info-About{
+            padding: 0 20px 0 20px;
+        }
+}
+
+
+
+/* Animation */
+@keyframes toVisible{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}

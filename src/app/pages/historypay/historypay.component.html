@@ -1,0 +1,105 @@
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<div class="DialogDetailsHistoryPay__Container" id="DialogDetailsHistoryPay__Container">
+    <div class="DialogDetailsHistoryPay">
+        <div class="DialogDetailsHistoryPay__CloseBtn" (click)="closeDialog_HistoryPay()">
+            <mat-icon>highlight_off</mat-icon>
+        </div>
+        <div class="DialogDetailsHistoryPay__infoUser">
+            <h1>THÔNG TIN ĐƠN HÀNG</h1>
+            <div class="DialogDetailsHistoryPay__infoUser-Details" *ngFor="let DH of DonHangByID ">
+                <span>
+                    <span style="font-weight: bold;">Tên Khách Hàng: </span> {{DH.HoTen}}
+                </span>
+                <span>
+                    <span style="font-weight: bold;">Mã Đơn Hàng: </span> {{DH.id}}
+                </span>
+                <span>
+                    <span style="font-weight: bold;">Ngày Đặt Hàng: </span> {{DH.Ngaydat|date:'dd/MM/yyyy'}}
+                </span>
+                <span>
+                    <span style="font-weight: bold;">Tổng Tiền: </span><span style="color: red; font-weight: 600;">
+                        {{DH.TongTien|number:'1.3'}}đ</span>
+                </span>
+                <span *ngIf="!DH.Tinhtranggiaohang">
+                    <span style="font-weight: bold;">Tình Trạng: </span><span style="color: red; font-weight: 600;">Chưa
+                        Giao Hàng</span>
+                </span>
+                <span *ngIf="DH.Tinhtranggiaohang">
+                    <span style="font-weight: bold;">Tình Trạng: </span><span
+                        style="color: rgba(12, 134, 1, 0.767); font-weight: 600;">
+                        Đã Giao Hàng</span>
+                </span>
+            </div>
+        </div>
+        <div class="DialogDetailsHistoryPay__infoPay">
+            <div class="DialogDetailsHistoryPay__Title-Image">Ảnh</div>
+            <div class="DialogDetailsHistoryPay__Title-BookName">Tên Sách</div>
+            <div class="DialogDetailsHistoryPay__Title-Count">Số Lượng</div>
+            <div class="DialogDetailsHistoryPay__Title-Price">Thành Tiền</div>
+        </div>
+        <div class="DialogDetailsHistoryPay__infoPay-Details"
+            *ngFor="let ctdonhang of CTDH | paginate: { itemsPerPage: 8, currentPage: pCTDH ,id:'CTDH'}">
+            <div class="DialogDetailsHistoryPay__Image">
+                <img src="{{ctdonhang.Anhbia}}" alt="Ảnh Sách">
+            </div>
+            <div class="DialogDetailsHistoryPay__BookName">{{ctdonhang.Tensach}}</div>
+            <div class="DialogDetailsHistoryPay__Count">{{ctdonhang.Soluong}}</div>
+            <div class="DialogDetailsHistoryPay__Price">{{(ctdonhang.Dongia * ctdonhang.Soluong) | number:'1.3'}}đ</div>
+        </div>
+        <pagination-controls class="my-pagination" id="CTDH" (pageChange)="pCTDH = $event">
+        </pagination-controls>
+    </div>
+</div>
+
+
+
+
+
+<div class="HistoryPay__Container">
+    <h1>Lịch sử mua hàng</h1>
+    <div class="HistoryPay__Header">
+
+        <div class="HistoryPay__Title-BillID">Mã Đơn</div>
+        <div class="HistoryPay__Title-Username">Tình Trạng</div>
+        <div class="HistoryPay__Title-DatePay">Thời Gian Đặt</div>
+
+        <div class="HistoryPay__Title-Setting">Thiết Lập</div>
+    </div>
+    <div class="DateSearch">
+        <span>From:</span>
+        <input type="date" data-date-format="DD MMMM YYYY" name="dateFrom" (change)="dateFrom($event)"
+            [ngModel]="Day | date:'yyyy-MM-dd'" id="dateFrom">
+        <span>To:</span>
+        <input type="date" data-date-format="DD MMMM YYYY" name="dateTo" (change)="dateTo($event)"
+            [ngModel]="Today | date:'yyyy-MM-dd'" id="dateTo">
+    </div>
+
+    <div class="HistoryPay__Body">
+        <h4>{{mess}}</h4>
+        <div class="HistoryPay__Details"
+            *ngFor="let donhang of ListDonHang | paginate: { itemsPerPage: 5, currentPage: p }">
+
+            <div class="HistoryPay__Bill-BillID">{{donhang._id}}</div>
+            <div class="HistoryPay__Bill-Username" *ngIf="donhang.Dathanhtoan &&donhang.Tinhtranggiaohang"><span
+                    style="color: rgba(12, 134, 1, 0.767); font-weight: 600;">
+                    Đã Giao Hàng</span>
+            </div>
+            <div class="HistoryPay__Bill-Username" *ngIf="donhang.Dathanhtoan && !donhang.Tinhtranggiaohang"><span
+                    style="color: red; font-weight: 600;">Chưa Giao Hàng</span></div>
+            <div class="HistoryPay__Bill-Username" *ngIf="!donhang.Dathanhtoan"><span
+                    style="color: red; font-weight: 600;">Chưa Thanh Toán</span>
+            </div>
+            <div class="HistoryPay__Bill-DatePay">{{donhang.Ngaydat|date:'dd/MM/yyyy'}}</div>
+
+            <div class="HistoryPay__Bill-Setting">
+                <div class="HistoryPay__Bill-Setting-details" (click)="showDialog_HistoryPay(donhang._id)">
+                    Chi Tiết
+                </div>
+            </div>
+        </div>
+        <pagination-controls class="my-pagination" (pageChange)="p = $event">
+        </pagination-controls>
+    </div>
+
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

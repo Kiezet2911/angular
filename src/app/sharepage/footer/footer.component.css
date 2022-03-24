@@ -1,0 +1,62 @@
+.Footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 15px;
+    color: white;
+    background-color: black;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    font-family: 'Nunito Sans', sans-serif;
+}
+.Footer__Header{
+    margin-bottom: 30px;
+}
+h3{
+    border-bottom: 2px solid white;
+    width: fit-content;
+    user-select: none;
+}
+.Footer_Body{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.Footer__About-Logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 45px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: white;
+}
+.Footer__About-Contact{
+    display: flex;
+    flex-direction: column;
+}
+.Logo_icon {
+    font-size: 30px;
+}
+
+.Social__Contact {
+    display: flex;
+    flex-direction: column;
+}
+
+.Social {
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: white;
+}
+.Footer__About-Link{
+    list-style-type: none;
+    text-decoration: none;
+    color: white;
+    margin-bottom: 5px;
+}

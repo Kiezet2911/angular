@@ -1,0 +1,78 @@
+.navbar{
+    font-size: 17px;
+    box-shadow: 0 0 10px 0 rgba(119, 114, 114, 0.76);
+    z-index: 100;
+    width: 100vw;
+    top: 0;
+    position: fixed;
+}
+.navbar-brand{
+    display: flex;
+    align-items: center;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 35px;
+}
+.Logo_icon {
+        font-size: 30px;
+    }
+
+.nav__shopping{
+    display: flex !important;
+    flex-direction: row !important;
+    width: fit-content;
+
+}
+    .btn__cart {
+        margin-right: 10px !important;
+    }
+
+    .btn_signin:hover,
+    .btn_signup:hover{
+        text-decoration: none;
+    }
+    .btn_signup {
+        color: white;
+        background-color: black;
+
+    }
+
+    .btn_signin {
+        color: black;
+        border: 2px solid black;
+        margin-right: 10px !important;
+    }   
+        .Account{
+            color: black;
+        }
+
+        #navbarMenu ul li a{
+            position: relative;
+        }
+        
+        #navbarMenu ul li a::after{
+            content: '';
+            display: block;
+            height: 2px;
+            background-color: black;
+            width: 0px;
+            margin-top: 1px;
+        }
+        #navbarMenu ul li a:hover{
+            color: black;
+        }
+        #navbarMenu ul li a:hover::after{
+            
+            width: 100%;
+            transition: .5s;
+        }
+    .Account{
+        display: flex;
+        align-items: center;
+    }
+        .Account span{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    .dropdown-item{
+        cursor: pointer !important;
+    }

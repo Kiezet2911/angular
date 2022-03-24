@@ -1,0 +1,363 @@
+.Product__Container {
+    width: 90%;
+    margin: 80px auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+}
+
+.Product__ListCategory {
+    width: 25%;
+    height: fit-content;
+    box-shadow: 0 0 0.2rem 0 rgba(0, 0, 0, 0.582);
+    padding-left: 20px;
+    padding-top: 20px;
+    border-radius: 0.5rem;
+}
+
+.Product__ListCategory h4 {
+    font-weight: 600;
+}
+
+.Product__ListCategory ul {
+    list-style-type: none;
+}
+
+.Product__ListCategory ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    cursor: pointer;
+    position: relative;
+}
+
+.Product__ListCategory ul li a:hover {
+    color: orange;
+}
+
+.Product__ListCategory ul li a:hover::after {
+    background-color: orange;
+    transition: 0.5s;
+    width: 100%;
+}
+
+.Product__ListCategory ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    display: block;
+    width: 0%;
+}
+
+.Product__ListProduct {
+    width: 70%;
+    box-shadow: 0 0 0.2rem 0 rgba(119, 114, 114, 0.76);
+    border-radius: 0.5rem;
+    height: fit-content;
+}
+
+.Product__ListProduct-Features {
+    display: flex;
+    flex-flow: column wrap;
+    padding: 50px;
+    position: relative;
+}
+
+.Product__ListProduct-Sort{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 20px 0 20px 0;
+    border-bottom: 1px solid rgba(119, 114, 114, 0.76);
+}
+    .Product__ListProduct-Sort h4 {
+        font-weight: 600;
+        margin-right: 10px;
+    }
+
+.Product__List {
+    padding: 0px 50px 50px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: "Nunito Sans", sans-serif;
+    transition: 1s;
+}
+
+.Book {
+    width: 170px;
+    height: fit-content;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin: 20px 20px 20px 20px;
+    border: 1px solid rgba(119, 114, 114, 0.76);
+}
+
+.Book:hover {
+    box-shadow: 0 0 10px 0 rgba(119, 114, 114, 0.76);
+    transform: translateY(-10px) !important;
+    transition: .5s;
+}
+
+.Book__Img {
+    width: 100%;
+    height: 220px;
+}
+
+.Book__Img img {
+    width: 100%;
+    height: 100%;
+}
+
+.Book__Content-BookName {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.Book__Content-BookName h3 {
+    font-weight: 600;
+    font-size: 15px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+}
+
+.Book__Content-Author {
+    font-size: 11px;
+    margin-top: -20px;
+}
+
+.Book__Content-Price {
+    color: red;
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 17px !important;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 821px) {
+    .Product__Container {
+        padding: 0;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+
+    .Product__ListCategory,
+    .Product__ListProduct {
+        width: 100% !important;
+    }
+
+    .Product__ListCategory {
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .Product__List {
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 16px;
+        animation: toVisible 3s 1 ease-in-out forwards;
+    }
+
+    .Product__ListCategory {
+        width: 25%;
+        height: fit-content;
+        box-shadow: 0 0 .2rem 0 rgba(0, 0, 0, 0.582);
+        padding-left: 20px;
+        padding-top: 20px;
+        border-radius: .5rem;
+    }
+
+    .Product__ListCategory h4 {
+        font-weight: 600;
+    }
+
+    .Product__ListCategory ul {
+        list-style-type: none;
+    }
+
+    .Product__ListCategory ul li a {
+        text-decoration: none;
+        color: black;
+        font-weight: 400;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .Product__ListCategory ul li a:hover {
+        color: orange;
+    }
+
+    .Product__ListCategory ul li a:hover::after {
+        background-color: orange;
+        transition: .5s;
+        width: 100%;
+    }
+
+    .Product__ListCategory ul li a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        display: block;
+        width: 0%;
+    }
+
+    .Product__ListProduct {
+        width: 70%;
+        box-shadow: 0 0 .2rem 0 rgba(0, 0, 0, 0.582);
+        border-radius: .5rem;
+        height: fit-content;
+    }
+
+    .Product__ListProduct-Features {
+        display: flex;
+        padding: 50px;
+        position: relative;
+        flex-flow: column wrap;
+    }
+
+
+
+    .Product__ListProduct-Sort {
+        display: flex;
+        flex-flow: row;
+        align-items: center;
+        margin: 10px 0 10px 0;
+    }
+
+    .Product__ListProduct-Sort h4 {
+        margin-right: 10px;
+        font-weight: 600;
+    }
+
+    mat-form-field {
+        width: 40%;
+    }
+
+    .Product__List {
+        padding: 0px 50px 50px 50px;
+        display: flex;
+        flex-wrap: wrap;
+        font-family: 'Nunito Sans', sans-serif;
+        transition: 1s;
+    }
+
+    .Book {
+        width: 170px;
+        height: fit-content;
+        border-radius: .5rem;
+        cursor: pointer;
+        margin: 20px 20px 20px 20px;
+        border: 1px solid rgba(0, 0, 0, 0.582);
+    }
+
+    .Book:hover {
+        box-shadow: 0 0 10px 4px rgba(163, 163, 163, 0.733);
+    }
+
+    .Book__Img {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+    }
+
+    .Book__Img img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .Book__Content-BookName {
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }
+
+    .Book__Content-BookName h3 {
+        font-weight: 600;
+        font-size: 15px;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+    }
+
+    .Book__Content-Author {
+        font-size: 11px;
+        margin-top: -20px;
+    }
+
+    .Book__Content-Price {
+        color: red;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 17px !important;
+        font-weight: 700;
+    }
+    .my-pagination /deep/ .ngx-pagination{
+        width: 50%;
+        margin: 0 auto 30px auto;
+    }
+}
+
+@media screen and (max-width:413px) {
+    .Product__Container {
+        padding: 0;
+        margin: 0 auto;
+        flex-direction: column;
+    }
+
+    .Product__ListCategory,
+    .Product__ListProduct {
+        width: 100%;
+    }
+
+    .Product__ListCategory {
+        margin-bottom: 20px;
+    }
+
+    .Product__List {
+        padding: 0;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    .my-pagination /deep/ .ngx-pagination {
+        width: 100%;
+        flex-wrap: nowrap;
+        background: #ffffff;
+        margin: 30px auto;
+        background: white;
+        border-radius: 15px;
+    }
+}
+
+/* Animation */
+@keyframes toVisible {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

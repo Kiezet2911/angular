@@ -1,0 +1,235 @@
+#carousel{
+    margin: 0 auto;
+    width: 70%;
+    height: 300px;
+    margin-top: 100px;
+    box-shadow: 0 0 5px 0 rgba(119, 114, 114, 0.76);
+    border-radius: 1rem;
+    font-family: 'Nunito Sans', sans-serif;
+}
+.Banner__Container{
+    width: 100%;
+    border-radius: 1rem;
+}
+.Banner img{
+    width: 100%;
+    height: 300px;
+    object-fit: fill;
+}
+
+.Title{
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
+    .Title::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        transform: translateY(-35px);
+        background-color: black;
+        bottom: 0;
+        left: 0;
+    }
+#carouselListSelling,
+#carouselGoodBook{
+    width: 70%;
+    margin: 0 auto;
+}
+.Slide__Book{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.btnCarousel{
+    box-shadow: 0 0 10px 0 rgba(119, 114, 114, 0.76);
+    background-color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 25px;
+    margin: auto 0;
+}
+.SellingBook{
+    width: 250px;
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    box-shadow: 0 0 2px 0 rgba(119, 114, 114, 0.76);
+    transition: .5s;
+}
+    .SellingBook:hover{
+        transform: translateY(-10px);
+        cursor: pointer;
+        box-shadow: 0 0 20px 0 rgba(158, 154, 154, 0.63);
+    }
+    .ImgBook{
+        width: 100%;
+        height: 300px;
+    }
+        .ImgBook img{
+            width: 100%;
+            height: 100%;
+        }
+    .BookTitle{
+        height: 50px;
+        font-weight: 600;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        display:-webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+    }
+    .Author{
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 2px;
+        display:-webkit-box;
+        -webkit-line-clamp:1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-word;
+        font-size: 13px;
+    }
+.Good__Book{
+    width: 90%;
+    height: 500px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 80px auto 100px auto;
+    border: 1px solid rgba(201, 198, 198, 0.582);
+    border-radius: 1rem;
+    box-shadow: 0 0 20px 0 rgba(119, 114, 114, 0.76);
+    padding: 100px 200px 100px 200px;
+}
+    .Good__Book-image{
+        width: 30%;
+        transform: rotate(-20deg) skew(-20deg,-3deg);
+        box-shadow: -10px 0 20px 3px rgba(119, 114, 114, 0.76);
+        animation: toUpAndDown 2s infinite;
+    }
+    @keyframes toUpAndDown{
+    	0%{
+    	   transform: rotate(-20deg) skew(-20deg,-3deg) translateY(0px);
+    	}
+    	50%{
+    		transform: rotate(-20deg) skew(-20deg,-3deg) translateY(10px);
+    	}
+    	100%{
+    	    		transform: rotate(-20deg) skew(-20deg,-3deg) translateY(0px);
+    	}
+    }
+        .Good__Book-image img{
+            width: 100%;
+            height: 100%;
+        }
+    .Good__Book-about{
+        width: 60%;
+        display: flex;
+        flex-flow: column nowrap;
+        padding-left: 100px;
+        justify-content: space-between;
+    }
+        .Good__Book-header h1{
+            font-weight: 600;
+        }
+        .Good__Book-body{
+            display:-webkit-box;
+            -webkit-line-clamp:4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-word;
+        }
+        .Good__Book-readnow{
+            border-radius: 1rem;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            padding-top: 10px;
+            background-color: rgba(255, 0, 0, 0.726);
+            color: white;
+            font-weight: 600;
+            border: 1px solid red;
+            margin: 10px 0 0 0;
+            transition: 1s;
+        }
+            .Good__Book-readnow:hover{
+                cursor: pointer;
+                background-color: red;
+                box-shadow: 0 0 10px 0 red;
+            }
+@media screen and (max-width:821px) {
+    #carouselGoodBook{
+        width: 80%;
+    }
+    .Good__Book{
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 100px 50px;
+    }
+    .Good__Book-about,
+    .Good__Book-body{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .Good__Book-image{
+        margin: 30px 0 100px 0;
+    }
+    .Good__Book-readnow{
+        margin: 30px 0 30px 0;
+    }
+}
+@media screen and (max-width:412px) {
+    #carousel{
+        width: 95%;
+        height: fit-content;
+    }
+    .Banner img{
+        object-fit: inherit;
+        height: auto;
+    }
+    .btnCarousel{
+        display: none;
+    }
+    #carouselGoodBook{
+        width: 80%;
+    }
+    .Good__Book{
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 100px 50px;
+    }
+        .Good__Book-about,
+        .Good__Book-body{
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .Good__Book-image{
+            margin: 30px 0 80px 0;
+        }
+        .Good__Book-readnow{
+            margin: 30px 0 30px 0;
+        }
+}

@@ -1,0 +1,548 @@
+.Admin__Container {
+  width: 80vw;
+  padding: 30px 0;
+  margin: 80px auto;
+  border-radius: 0.3rem;
+  min-height: 100vh;
+  border: 1px solid rgba(161, 161, 161, 0.596);
+}
+
+mat-tab-group {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.Admin__Account-Header,
+.Admin__Account-Account-Details,
+.Admin__HistoryPay-Header,
+.Admin__HistoryPay-Details,
+.DialogDetailsPay__infoPay,
+.Admin__Storage-Header,
+.Admin__Storage-Details{
+  margin: 20px 0 0 0;
+  display: flex;
+  align-items: center !important;
+  font-weight: 400;
+}
+
+.Admin__Account-Header,
+.Admin__HistoryPay-Header,
+.DialogDetailsPay__infoPay,
+.Admin__Storage-Header{
+  border-radius: 0.3rem;
+  background-color: rgba(0, 0, 0, 0.815);
+  color: white;
+  height: 35px;
+}
+
+.Admin__Account-Body {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.Checkbox__All-Account,
+.Checkbox__Account {
+  display: flex;
+  flex-basis: 10%;
+}
+.Title__email,
+.Title__username,
+.Title__role,
+.User__username,
+.User__email,
+.User__role{
+  flex-basis: 20%;
+  text-align: center;
+}
+
+.Title__setting,
+.User__setting {
+  display: flex;
+  justify-content: center;
+  flex-basis: 30%;
+}
+
+.Admin__Account-Account-Details,
+.Admin__HistoryPay-Details,
+.Admin__Storage-Details{
+  padding: 30px 0;
+  border-top: 1px solid rgba(109, 109, 109, 0.308);
+  border-bottom: 1px solid rgba(109, 109, 109, 0.308);
+}
+
+.UpdateAll__Setting {
+  margin: 30px 0;
+  padding: 10px;
+  color: white;
+  border-radius: 0.3rem;
+  background-color: rgba(255, 0, 0, 0.637);
+  width: fit-content;
+  border: 1px solid rgba(109, 109, 109, 0.308);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.UpdateAll__Setting:hover {
+  background-color: red;
+  box-shadow: 0 0 6px 0 red;
+}
+
+.Title__DatePay,
+.Title__Username,
+.Bill__DatePay,
+.Bill__Username{
+  flex-basis: 20%;
+  text-align: center;
+}
+.Bill__BillID,
+.Title__BillID{
+  text-align: center;
+  flex-basis: 30%;
+}
+
+.Title__Setting,
+.Bill__Setting{
+  display: flex;
+  justify-content: center;
+  flex-basis: 30%;
+}
+.User__setting-deleteAccount{
+  width: fit-content;
+}
+.Bill__Setting-details,
+.Bill__Setting-delete,
+.User__setting-deleteAccount,
+.DeleteAccount__Setting-details,
+.Setting__Banner-Feature-Btn,
+.DialogChangeDetailsProduct__Setting-details{
+  border-radius: .3rem;
+  background-color: rgba(255, 166, 0, 0.705);
+  color: white;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.Bill__Setting-details{
+  margin-right: 10px;
+}
+
+.DeleteAccount__Setting,
+.DialogChangeDetailsProduct__Setting-details{
+  display: flex;
+  margin-left: 30px;
+  width: fit-content;
+}
+.DeleteAccount__Setting-YES{
+  margin-right: 20px;
+}
+
+.Bill__Setting-details:hover,
+.DeleteAccount__Setting-details:hover,
+.Setting__Banner-Feature-Btn:hover,
+.Bill__Setting-delete:hover,
+.DialogChangeDetailsProduct__Setting-details:Hover{
+  background-color: orange;
+  box-shadow: 0 0 10px 0 orange;
+}
+
+.DialogDetailsPay__Container,
+.DialogDeleteAccount__Container,
+.DialogChangeDetailsProduct__Container{
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.651);
+  width: 100%;
+  min-height: 120vh;
+  height: fit-content;
+  position: absolute;
+  transition: 1s;
+  display: none;
+  transition: 1s;
+  transform: translateY(-30px);
+  animation: toVisible 1s 1 ease-in-out;
+}
+
+.DialogDetailsPay,
+.DialogDeleteAccount,
+.DialogChangeDetailsProduct{
+  margin: 100px auto;
+  background-color: white;
+  width: 40vw;
+  min-height: 50vh;
+  padding-bottom: 50px;
+  height: fit-content;
+  box-shadow: 0 0 10px 0 black;
+  border-radius: .5rem;
+  position: relative;
+}
+.DialogDeleteAccount{
+  min-height: 30vh;
+}
+.DialogDetailsPay__infoUser,
+.DialogDeleteAccount__infoUser,
+.DialogChangeDetailsProduct__changeDetails{
+  padding-top: 50px;
+  padding-left: 30px;
+}
+.DialogChangeDetailsProduct__changeDetails{
+  display: flex;
+  padding-bottom: 30px;
+  flex-flow: column nowrap;
+}
+.DialogChangeDetailsProduct__changeDetails input{
+  margin: 10px 0;
+  width: 100px;
+}
+.DialogDetailsPay__infoUser-Details{
+  display: flex;
+  flex-flow: column nowrap;
+}
+  .DialogDetailsPay__infoUser h1,
+  .DialogDeleteAccount__infoUser h1{
+    font-weight: 600;
+    font-size: 20px;
+  }
+.DialogDetailsPay__infoPay{
+  border-radius: 0;
+
+}
+.DialogDetailsPay__infoPay-Details{
+  display: flex;
+  padding-bottom: 50px;
+  padding-top: 10px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(109, 109, 109, 0.308);
+  border-bottom: 1px solid rgba(109, 109, 109, 0.308);
+}
+.DialogDetailsPay__Title-Image,
+.DialogDetailsPay__Image{
+  flex-basis: 30%;
+  text-align: center;
+}
+  .DialogDetailsPay__Image img{
+    width: 60%;
+    height: 150px;
+  }
+.DialogDetailsPay__Title-BookName,
+.DialogDetailsPay__BookName{
+  flex-basis: 30%;
+  text-align: center;
+}
+.DialogDetailsPay__Title-Count,
+.DialogDetailsPay__Count{
+  flex-basis: 20%;
+  text-align: center;
+}
+.DialogDetailsPay__Title-Price,
+.DialogDetailsPay__Price{
+  flex-basis: 20%;
+  text-align: center;
+}
+.DialogDetailsPay__Price{
+  color: red;
+  font-weight: 600;
+}
+.DialogDetailsPay__CloseBtn,
+.DialogDeleteAccount__CloseBtn,
+.DialogChangeDetailsProduct__CloseBtn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px 15px 0 0;
+  cursor: pointer;
+}
+.DialogDetailsPay__CloseBtn mat-icon,
+.DialogChangeDetailsProduct__CloseBtn mat-icon{
+  font-size: 30px;
+  transition: 1s;
+}
+.DialogDetailsPay__CloseBtn mat-icon:hover,
+.DialogChangeDetailsProduct__CloseBtn mat-icon:hover{
+  color: red;
+}
+pagination-controls{
+  margin: 0px auto !important;
+}
+.my-pagination /deep/ .ngx-pagination .current {
+  margin: 20px !important;
+  width: fit-content;
+}
+mat-form-field{
+  margin: 20px 0 30px 0;
+}
+
+::ng-deep mat-form-field{
+  height: 20px;
+}
+.Admin__Setting-Container{
+  width: 70%;
+  margin: 40px auto 0px auto;
+}
+.Admin__Setting-Banner,
+.Admin__Setting-Author{
+  position: relative;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: .5rem;
+}
+.Admin__Setting-Banner h1,
+.Admin__Setting-Author h1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(20px,-20px);
+  background-color: white;
+  font-size: 20px;
+}
+.Setting__Banner-Feature{
+  display: flex;
+  width: fit-content;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  align-items: center;
+}
+.Setting__Banner-Feature div{
+  margin-right: 10px;
+}
+.Setting__Banner-Feature input,
+.DialogChangeDetailsProduct__Setting-details{
+  width: fit-content;
+}
+.Setting__Banner img{
+  width: 70%;
+}
+.Admin__Setting-Products{
+  margin-top: 20px;
+}
+.Setting__Banner-Feature-Btn{
+  width: fit-content;
+}
+
+.Title__Product-Image,
+.Product__Image,
+.Title__Product-Name,
+.Title__Product-Count,
+.Title__Product-Price,
+.Product__Name,
+.Product__Count,
+.Product__Price{
+  flex-basis: 20%;
+  text-align: center;
+}
+.Product__Image img{
+  width: 50%;
+}
+.DialogChangeDetailsProduct{
+  width: 15vw;
+}
+
+
+/*                                  */
+.AddNewBook__Container{
+  min-height: 70vh;
+}
+.AddNewBook__Body{
+  margin: 50px auto;
+  padding: 50px;
+  width: 90% !important;
+  border: 1px solid rgba(109, 109, 109, 0.308);
+  height: 100% !important;
+  border-radius: .5rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  font-weight: 600;
+}
+.AddNewBook__Body,
+.AddNewBook__Body-BookImage input,
+.AddNewBook__Body-BtnAdd{
+  width: fit-content;
+}
+.AddNewBook__Body-BookName,
+.AddNewBook__Body-BookCategory,
+.AddNewBook__Body-BookAuthor{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.AddNewBook__Body-BookImage{
+  flex-flow: column nowrap;
+  margin-bottom: 20px;
+}
+.AddNewBook__Body-Image{
+  display: flex;
+  margin-top: 20px;
+}
+.AddNewBook__Body-BookImage img{
+  width: 80px;
+  height: 100px;
+}
+.AddNewBook__Body-BtnAdd{
+  cursor: pointer;
+  padding: 5px;
+  background-color: rgba(255, 166, 0, 0.658);
+  color: white;
+  transition: 1s;
+  border-radius: .5rem;
+  font-weight: 400;
+}
+.AddNewBook__Body-BtnAdd:hover{
+  background-color: orange;
+  box-shadow: 0 0 10px 0 orange;
+}
+
+.Admin__Setting-Author{
+  margin-top: 30px;
+  width: fit-content;
+}
+.Delete__Container{
+  display: flex;
+  flex-flow: column nowrap;
+}
+#category{
+  height: 30px;
+}
+.Add__Btn,
+.Delete__Btn{
+  cursor: pointer;
+  padding: 5px;
+  color: white;
+  background-color: rgba(255, 166, 0, 0.589);
+  width: fit-content;
+  border-radius: .3rem;
+  margin: 10px 0;
+  transition: 1s;
+}
+.Add__Btn:hover,
+.Delete__Btn:hover{
+  background-color: rgb(255, 166, 0);
+  box-shadow: 0 0 5px 0 rgb(255, 166, 0);
+}
+.Admin__Setting-AddNew{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.Admin__Account-Empty{
+  margin: 30px auto;
+  width: fit-content;
+  height: 180px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  animation: toVisible 2s 1 forwards;
+}
+  .Admin__Account-Empty-image{
+      width: 150px;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 10rem;
+  }
+      .Admin__Account-Empty-image img{
+          width: 100%;
+          height: 100%;
+      }
+      .Admin__Account-Empty span{
+          color: red;
+          font-weight: 600;
+      }
+/* Responsive */
+@media screen and (max-width: 415px) {
+  .Admin__Container {
+    width: 95vw;
+  }
+
+  mat-tab-group {
+    width: 95%;
+  }
+
+  .Title__email,
+  .User__email,
+  .Bill__DatePay,
+  .Title__DatePay{
+    display: none;
+  }
+  .Title__username,
+  .User__username,
+  .Title__role,
+  .User__role{
+    text-align: center;
+    flex-basis: 30%;
+  }
+  .Title__infoPay{
+    flex-basis: 68%;
+  }
+  .DialogDetailsPay{
+    width: 100%;
+    border-radius: 0;
+  }
+  .Setting__Banner-Feature{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .DialogChangeDetailsProduct{
+    width: 50vw;
+    min-height: 30vh;
+  }
+
+  .AddNewBook__Body{
+    width: 100%;
+  }
+}
+
+.checkbox {
+  margin: 0 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  font: inherit;
+  color: currentColor;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  display: grid;
+  place-content: center;
+}
+
+.checkbox::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+  transform: scale(0);
+  transform-origin: bottom left;
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+.checkbox:checked {
+  background-color: red;
+}
+
+.checkbox:checked::before {
+  transform: scale(1);
+}
+
+.checkbox:focus {
+  outline: max(2px, 0.15em) solid currentColor;
+  outline-offset: max(2px, 0.15em);
+}
+
+::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: black;
+}
+
+@keyframes toVisible{
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+}

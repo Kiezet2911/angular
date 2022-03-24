@@ -1,0 +1,263 @@
+.HistoryPay__Container {
+    margin: 60px auto;
+    width: 80%;
+    padding-top: 50px;
+    min-height: 70vh;
+    animation: toVisibleRight 1.5s 1 linear forwards;
+}
+
+.HistoryPay__Container h1 {
+    font-weight: 600;
+}
+
+.HistoryPay__Header,
+.HistoryPay__Details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.HistoryPay__Header,
+.HistoryPay__Body {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.HistoryPay__Body {
+    margin-top: 10px;
+}
+
+.HistoryPay__Header {
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.HistoryPay__Details {
+    padding: 10px 0;
+    border-top: 1px solid rgba(109, 109, 109, 0.308);
+    border-bottom: 1px solid rgba(109, 109, 109, 0.308);
+}
+
+.HistoryPay__Title-DatePay,
+.HistoryPay__Bill-DatePay,
+.HistoryPay__Title-Setting,
+.HistoryPay__Bill-Setting {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.HistoryPay__Title-BillID,
+.HistoryPay__Bill-BillID {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.HistoryPay__Title-Username,
+.HistoryPay__Bill-Username {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.HistoryPay__Bill-Setting-details {
+    background-color: rgba(255, 145, 0, 0.678);
+    width: fit-content;
+    padding: 10px;
+    margin: 0 auto;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
+    border-radius: .5rem;
+    transition: 1s;
+}
+
+.HistoryPay__Bill-Setting-details:hover {
+    background-color: orange;
+    box-shadow: 0 0 10px 0 orange;
+}
+
+/* DialogDetailsHistoryPay */
+.DialogDetailsHistoryPay__Container {
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.651);
+    width: 100%;
+    min-height: 120vh;
+    height: fit-content;
+    position: absolute;
+    transition: 1s;
+    display: none;
+    transition: 1s;
+    transform: translateY(-30px);
+    animation: toVisible 1s 1 ease-in-out;
+}
+
+.DialogDetailsHistoryPay {
+    margin: 100px auto;
+    background-color: white;
+    width: 40vw;
+    min-height: 50vh;
+    padding-bottom: 50px;
+    height: fit-content;
+    box-shadow: 0 0 10px 0 black;
+    border-radius: .5rem;
+    position: relative;
+}
+
+.DialogDetailsHistoryPay__infoPay {
+    margin: 20px 0 0 0;
+    display: flex;
+    align-items: center !important;
+    font-weight: 400;
+    background-color: rgba(0, 0, 0, 0.815);
+    color: white;
+}
+
+.DialogDetailsHistoryPay__infoUser {
+    padding-top: 50px;
+    padding-left: 30px;
+}
+
+.DialogDetailsHistoryPay__infoUser h1 {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.DialogDetailsHistoryPay__infoUser-Details {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.DialogDetailsHistoryPay__infoPay-Details {
+    display: flex;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(109, 109, 109, 0.308);
+    border-bottom: 1px solid rgba(109, 109, 109, 0.308);
+}
+
+.DialogDetailsHistoryPay__Title-Image,
+.DialogDetailsHistoryPay__Image {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.DialogDetailsHistoryPay__Image img {
+    width: 60%;
+    height: 150px;
+}
+
+.DialogDetailsHistoryPay__Title-BookName,
+.DialogDetailsHistoryPay__BookName {
+    flex-basis: 30%;
+    text-align: center;
+}
+
+.DialogDetailsHistoryPay__Title-Count,
+.DialogDetailsHistoryPay__Count {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.DialogDetailsHistoryPay__Title-Price,
+.DialogDetailsHistoryPay__Price {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.DialogDetailsHistoryPay__Price {
+    color: red;
+    font-weight: 600;
+}
+
+.DialogDetailsHistoryPay__CloseBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px 15px 0 0;
+    cursor: pointer;
+}
+
+.DialogDetailsHistoryPay__CloseBtn mat-icon {
+    font-size: 30px;
+    transition: 1s;
+}
+
+.DialogDetailsHistoryPay__CloseBtn mat-icon:hover {
+    color: red;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    margin: 20px auto !important;
+    width: fit-content !important;
+}
+.DateSearch{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px 0 20px 50px;
+    width: 40%;
+}
+    .DateSearch span{
+        font-weight: 600;
+    }
+@media screen and (max-width:415px) {
+    .HistoryPay__Container {
+        width: 100%;
+    }
+    .DateSearch{
+        width: 100%;
+        margin: 20px 0;
+    }
+    .HistoryPay__Container h1 {
+        margin-left: 30px;
+    }
+
+    .HistoryPay__Header,
+    .HistoryPay__Body {
+        width: 98%;
+        margin: 0 auto;
+    }
+
+    .HistoryPay__Title-Username,
+    .HistoryPay__Bill-Username {
+        display: none;
+    }
+
+    .HistoryPay__Title-DatePay,
+    .HistoryPay__Bill-DatePay,
+    .HistoryPay__Title-Setting,
+    .HistoryPay__Bill-Setting {
+        flex-basis: 30%;
+        text-align: center;
+    }
+
+    .HistoryPay__Title-BillID,
+    .HistoryPay__Bill-BillID {
+        flex-basis: 40%;
+        text-align: center;
+    }
+    .DialogDetailsHistoryPay{
+        width: 80vw;
+    }
+    .DialogDetailsHistoryPay__Image{
+        height: 100px;
+    }
+    .DialogDetailsHistoryPay__Image img{
+        height: 100%;
+        width: 80%;
+    }
+}
+
+@keyframes toVisibleRight {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}

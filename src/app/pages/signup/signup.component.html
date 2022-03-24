@@ -1,0 +1,24 @@
+<div class="center">
+    <div class="Logo">
+        <mat-icon class="Logo_icon">bookmark_border</mat-icon>MBook
+    </div>
+    <form method="post" action="#">
+        <div class="txt_field">
+            <input type="text" name="username" id="" autocomplete="off" required [(ngModel)]="username">
+            <label for="label-account">Username</label>
+        </div>
+        <div class="txt_field">
+            <input type="text" name="fullname" id="" autocomplete="off" required [(ngModel)]="fullname">
+            <label for="label-account">Fullname</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" name="password" id="" autocomplete="off" required [(ngModel)]="password">
+            <label for="label-account">Password</label>
+        </div>
+        <div class="txt_field">
+            <input type="password" name="password" id="" autocomplete="off" required [(ngModel)]="confirmpassword">
+            <label for="label-account">Confirm Password</label>
+        </div>
+        <input type="submit" name="" value="Register" (click)="clickme()">
+    </form>
+</div>

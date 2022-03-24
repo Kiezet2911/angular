@@ -1,0 +1,420 @@
+<div class="DialogDetailsPay__Container" id="DialogDetailsPay__Container">
+    <div class="DialogDetailsPay">
+        <div class="DialogDetailsPay__CloseBtn" (click)="closeDialog()">
+            <mat-icon>highlight_off</mat-icon>
+        </div>
+        <div class="DialogDetailsPay__infoUser">
+            <h1>THÔNG TIN ĐƠN HÀNG</h1>
+            <div class="DialogDetailsPay__infoUser-Details" *ngFor="let donhang of DonHanglistByID">
+                <span>
+                    <span style="font-weight: bold;">Tên Khách Hàng: </span>{{donhang.HoTen}}
+                </span>
+                <span>
+                    <span style="font-weight: bold;">Mã Đơn Hàng: </span> {{donhang.id}}
+                </span>
+                <span>
+                    <span style="font-weight: bold;">Ngày Đặt Hàng: </span> {{donhang.Ngaydat | date: 'dd/MM/yyyy'}}
+                </span>
+                <span>
+                    <span style="font-weight: bold;">Tổng Tiền: </span><span style="color: red; font-weight: 600;">
+                        {{donhang.TongTien|number:'1.3'}} đ</span>
+                </span>
+                <span *ngIf="!donhang.Tinhtranggiaohang">
+                    <span style="font-weight: bold;">Tình Trạng: </span><span style="color: red; font-weight: 600;">
+                        Chưa Giao Hàng</span>
+                </span>
+                <span *ngIf="donhang.Tinhtranggiaohang">
+                    <span style="font-weight: bold;">Tình Trạng: </span><span
+                        style="color: rgba(12, 134, 1, 0.767); font-weight: 600;">
+                        Đã Giao Hàng</span>
+                </span>
+            </div>
+        </div>
+        <div class="DialogDetailsPay__infoPay">
+            <div class="DialogDetailsPay__Title-Image">Ảnh</div>
+            <div class="DialogDetailsPay__Title-BookName">Tên Sách</div>
+            <div class="DialogDetailsPay__Title-Count">Số Lượng</div>
+            <div class="DialogDetailsPay__Title-Price">Thành Tiền</div>
+        </div>
+        <div class="DialogDetailsPay__infoPay-Details"
+            *ngFor="let book of BookByDonHang | paginate: { itemsPerPage: 1, currentPage: pdialog ,id:'BookByDonHang'}">
+            <div class="DialogDetailsPay__Image">
+                <img src="{{book.Anhbia}}" alt="">
+            </div>
+            <div class="DialogDetailsPay__BookName">{{book.Tensach}}</div>
+            <div class="DialogDetailsPay__Count">{{book.Soluong}}</div>
+            <div class="DialogDetailsPay__Price">{{book.Dongia * book.Soluong |number:'1.3'}} đ</div>
+        </div>
+        <pagination-controls class="my-pagination" (pageChange)="pdialog = $event" id="BookByDonHang">
+        </pagination-controls>
+    </div>
+</div>
+
+<div class="DialogDeleteAccount__Container" id="Dialog_Messenger">
+    <div class="DialogDeleteAccount">
+        <div class="DialogDeleteAccount__CloseBtn" (click)="closeDialog()">
+            <mat-icon>highlight_off</mat-icon>
+        </div>
+        <div class="DialogDeleteAccount__infoUser">
+            <h1 style="margin: auto;">Bạn Muốn Xóa Tài Khoản Này?</h1>
+            <h1>Tất Cả Dữ Liệu Của Tài Khoản Này Sẽ Bị Mất</h1>
+        </div>
+        <div class="DeleteAccount__Setting">
+            <div class="DeleteAccount__Setting-details DeleteAccount__Setting-YES" (click)="DeleteTK()">
+                Yes
+            </div>
+            <div class="DeleteAccount__Setting-details" (click)="closeDialog()">
+                No
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="DialogChangeDetailsProduct__Container" id="DialogChangeDetailsProduct__Container">
+    <div class="DialogChangeDetailsProduct">
+        <div class="DialogChangeDetailsProduct__CloseBtn" (click)="closeDialogChangeDetails()">
+            <mat-icon>highlight_off</mat-icon>
+        </div>
+        <div class="DialogChangeDetailsProduct__changeDetails">
+            <h1>Cập Nhật</h1>
+            Thêm số lượng tồn: <input type="number" [(ngModel)]="SolnTon " name="storageNum" id="">
+            Giá: <input type="number" name="storagePrice" [(ngModel)]="Product__Price " id="">
+        </div>
+        <div class="DialogChangeDetailsProduct__Setting-details DialogChangeDetailsProduct__Setting-YES"
+            (click)="UpdateBook()">
+            Cập Nhật
+        </div>
+    </div>
+</div>
+
+<div class="Admin__Container">
+    <mat-tab-group>
+        <mat-tab label="Tài Khoản">
+            <mat-form-field appearance="fill">
+                <mat-label>{{select}}</mat-label>
+                <mat-select>
+                    <mat-option (click)="ChooseUser()">Khách Hàng</mat-option>
+                    <mat-option (click)="ChooseAdmin()">Admin</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="Admin__Account-Header">
+                <div class="Checkbox__All-Account"></div>
+
+                <div class="Title__username">Tài Khoản</div>
+                <div class="Title__email">Email</div>
+                <div class="Title__role">Loại Tài Khoản</div>
+
+                <div class="Title__setting">Thiết Lập</div>
+            </div>
+
+            <div class="Admin__Account-Body">
+                <div class="Admin__Account-Empty" *ngIf="user.length == 0">
+                    <div class="Admin__Account-Empty-image">
+                        <img src="https://i.pinimg.com/originals/ec/0c/0c/ec0c0c652f7a9fb965bf08f45c4403fe.gif" alt="">
+                    </div>
+                    <span>Hiện chưa có thành viên nào đăng ký</span>
+                </div>
+                <div class="Admin__Account-Account-Details"
+                    *ngFor="let user of user | paginate: { itemsPerPage: 3, currentPage: p, id: 'user'  }">
+                    <div class="Checkbox__Account" *ngIf="!user.Role" (click)="SetRole(user._id)">
+                        <input type="checkbox" name="" class="checkbox" id="checkbox__account">
+                    </div>
+                    <div class="Checkbox__Account" *ngIf="user.Role"></div>
+                    <div class="User__username">{{user.Taikhoan}}</div>
+                    <div class="User__email" *ngIf="user.Email !=null">{{user.Email}}</div>
+                    <div class="User__email" *ngIf="user.Email ==null">Chưa Cập Nhật Email</div>
+                    <div class="User__role" *ngIf="user.Role">Admin</div>
+                    <div class="User__role" *ngIf="!user.Role">Khách</div>
+
+                    <div class="User__setting">
+                        <div (click)="showdialogMess(user._id,user.Role)" class="User__setting-deleteAccount">
+                            Xóa Tài Khoản
+                        </div>
+                    </div>
+                </div>
+                <div (click)="CapQuyen()" class="UpdateAll__Setting" *ngIf="ifCheckAll()">
+                    Cấp Quyền Admin
+                </div>
+                <pagination-controls *ngIf="!(user.length == 0)" class="my-pagination" (pageChange)="p = $event"
+                    id="user">
+                </pagination-controls>
+            </div>
+
+        </mat-tab>
+
+        <mat-tab label="Lịch Sử Giao Dịch">
+            <div class="Admin__HistoryPay-Header">
+
+                <div class="Title__BillID">Mã Đơn</div>
+                <div class="Title__Username">Tên Khách</div>
+                <div class="Title__DatePay">Thời Gian Đặt</div>
+
+                <div class="Title__Setting">Thiết Lập</div>
+            </div>
+            <div class="Admin__HistoryPay-Body">
+                <input type="text" class="form-control" (ngModelChange)="changeTextBill($event)" placeholder="Search..."
+                    [(ngModel)]="SearchBill" />
+                <div class="Admin__HistoryPay-Details"
+                    *ngFor="let DonHang of DonHanglist | filter: SearchBill  | paginate: { itemsPerPage: 3, currentPage: p, id: 'DonHang'  }">
+
+                    <div class="Bill__BillID">{{DonHang.id}}</div>
+                    <div class="Bill__Username">{{DonHang.HoTen}}</div>
+                    <div class="Bill__DatePay">{{DonHang.Ngaydat | date: 'dd/MM/yyyy'}}</div>
+
+                    <div class="Bill__Setting">
+                        <div class="Bill__Setting-details" (click)="showDialog(DonHang.id)">
+                            Chi Tiết
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <pagination-controls class="my-pagination" (pageChange)="p = $event" id="DonHang">
+            </pagination-controls>
+        </mat-tab>
+
+        <mat-tab label="Hàng Tồn">
+
+            <div class="Admin__Storage-Header">
+
+                <div class="Title__Product-Image">Ảnh</div>
+                <div class="Title__Product-Name">Tên Sách</div>
+                <div class="Title__Product-Count">Số Lượng Tồn</div>
+                <div class="Title__Product-Price">Giá</div>
+
+                <div class="Title__Setting">Thiết Lập</div>
+            </div>
+
+            <div class="Admin__Storage-Body">
+                <input type="text" class="form-control" (ngModelChange)="changeText($event)" placeholder="Search..."
+                    [(ngModel)]="Search" />
+                <div class="Admin__Storage-Details"
+                    *ngFor="let book of HangTon  | filter: Search  | paginate: { itemsPerPage: 2, currentPage: pHangTon, id: 'hangton' }">
+                    <div class="Product__Image">
+                        <img src="{{book.Anh}}" alt="">
+                    </div>
+                    <div class="Product__Name">{{book.Tensach}}</div>
+                    <div class="Product__Count">{{book.Soluongton}} quyển</div>
+                    <div class="Product__Price">{{book.Giaban |number:'1.3'}}đ</div>
+
+                    <div class="Bill__Setting">
+                        <div class="Bill__Setting-details"
+                            (click)="showDialogChangeDetailsProduct(book.id,book.Giaban)">
+                            Thay Đổi
+                        </div>
+                        <div (click)="XoaSach(book.id)" class="Bill__Setting-delete">
+                            Xóa Sách
+                        </div>
+                    </div>
+                </div>
+                <pagination-controls class="my-pagination" (pageChange)="pHangTon = $event" id="hangton">
+                </pagination-controls>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Thiết Lập">
+            <div class="Admin__Setting-Container">
+                <div class="Admin__Setting-Banner">
+                    <h1>Banner</h1>
+                    <div class="Setting__Banner">
+                        <div (click)="Reset()" class="Setting__Banner-Feature-Btn">
+                            Khôi Phục Mặc Định
+                        </div>
+                        <div class="Setting__Banner-Feature">
+                            <div>Banner 1</div>
+                            <input (change)="onFileSelected1($event)" type="file" name="Banner1" id="">
+                        </div>
+                        <img src="{{Anh1}}" alt="">
+
+                    </div>
+                    <div class="Setting__Banner">
+                        <div class="Setting__Banner-Feature">
+                            <div>Banner 2</div>
+                            <input (change)="onFileSelected2($event)" type="file" name="Banner2" id="">
+                        </div>
+                        <img src="{{Anh2}}" alt="">
+
+                    </div>
+                    <div class="Setting__Banner">
+                        <div class="Setting__Banner-Feature">
+                            <div>Banner 3</div>
+                            <input (change)="onFileSelected3($event)" type="file" name="Banner3" id="">
+                        </div>
+                        <img src="{{Anh3}}" alt="">
+                    </div>
+                    <div (click)="CapNhatBanner()" class="Setting__Banner-Feature-Btn">
+                        Cập Nhật
+                    </div>
+                </div>
+
+                <div class="Admin__Setting-AddNew">
+                    <div class="Admin__Setting-Author">
+                        <h1>Tác Giả</h1>
+                        <div class="Add__Container">
+                            <div class="AddAuthor">
+                                <div>Tên Tác Giả</div>
+                                <input type="text" name="" id="" [(ngModel)]="authorName">
+                            </div>
+                            <div class="AddAuthor">
+                                <div>Địa Chỉ</div>
+                                <input type="text" name="" id="" [(ngModel)]="authorAddr">
+                            </div>
+                            <div class="AddAuthor">
+                                <div>Tiểu Sử</div>
+                                <input type="text" name="" id="" [(ngModel)]="authorHist">
+                            </div>
+                            <div class="AddAuthor">
+                                <div>Điện Thoại</div>
+                                <input type="text" name="" id="" [(ngModel)]="authorPhone">
+                            </div>
+                            <div class="Add__Btn" (click)="newAuthor()">
+                                Thêm
+                            </div>
+                        </div>
+                        <div class="Delete__Container">
+                            <label for="author">Chọn Tác Giả: </label>
+
+                            <select name="author" id="category">
+                                <option selected>--Chọn Tác Giả Muốn Xóa--</option>
+                                <option *ngFor="let TG of TG" value="{{TG._id}}">
+                                    {{TG.TenTG}}
+                                </option>
+                            </select>
+
+                            <div (click)="XoaTG()" class="Delete__Btn">
+                                Xóa Tác Giả
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Admin__Setting-Author">
+                        <h1>Chủ Đề</h1>
+                        <div class="Add__Container">
+                            <div class="AddCategory">
+                                <div>Chủ Đề</div>
+                                <input type="text" name="" id="" [(ngModel)]="category">
+                            </div>
+                            <div class="Add__Btn" (click)="newCategory()">
+                                Thêm
+                            </div>
+                        </div>
+                        <div class="Delete__Container">
+                            <label for="category">Chọn Chủ Đề: </label>
+                            <select name="category" id="category">
+                                <option selected>--Chọn Chủ Đề Muốn Xóa--</option>
+                                <option *ngFor="let chude of dropdownList" value="{{chude._id}}">
+                                    {{chude.TenChuDe}}
+                                </option>
+                            </select>
+
+                            <div (click)="XoaChuDe()" class="Delete__Btn">
+                                Xóa Chủ Đề
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Admin__Setting-Author">
+                        <h1>Nhà Xuất Bản</h1>
+                        <div class="Add__Container">
+                            <div class="AddAuthor">
+                                <div>Tên Nhà Xuất Bản</div>
+                                <input type="text" name="" id="inputNXB" [(ngModel)]="TenNXB">
+                            </div>
+                            <div class="AddAuthor">
+                                <div>Địa Chỉ</div>
+                                <input type="text" name="" id="inputAddress" [(ngModel)]="DiaChi">
+                            </div>
+                            <div class="AddAuthor">
+                                <div>Số Điện Thoại</div>
+                                <input type="text" name="" id="inputPhone" [(ngModel)]="DienThoai">
+                            </div>
+                            <div class="Add__Btn" (click)="newNXB()">
+                                Thêm
+                            </div>
+                        </div>
+                        <div class="Delete__Container">
+                            <label for="nxb">Chọn NXB: </label>
+
+                            <select name="nxb" id="category">
+                                <option selected>--Chọn Nhà Xuất Bản Muốn Xóa--</option>
+                                <option *ngFor="let NXB of NXB" value="{{NXB._id}}">
+                                    {{NXB.TenNXB}}
+                                </option>
+                            </select>
+
+                            <div (click)="XoaNXB()" class="Delete__Btn">
+                                Xóa NXB
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+
+        <mat-tab label="Thêm Mới Sách">
+            <div class="AddNewBook__Container">
+                <div class="AddNewBook__Body">
+                    <div>
+                        <div class="AddNewBook__Body-BookName">
+                            <span>Tên Sách: </span>
+                            <textarea name="" id="" cols="17" rows="5" [required]="true"
+                                [(ngModel)]="TenSach"></textarea>
+                        </div>
+                        <div class="AddNewBook__Body-BookName">
+                            <span>Mô Tả: </span>
+                            <textarea name="" id="" cols="17" rows="5" [required]="true" [(ngModel)]="Mota"></textarea>
+                        </div>
+                        <div class="AddNewBook__Body-BookName">
+                            <span>Giá: </span>
+                            <input type="number" [required]="true" [(ngModel)]="Giaban">
+                        </div>
+                        <div class="AddNewBook__Body-BookName">
+                            <span>số Lượng: </span>
+                            <input type="number" [required]="true" [(ngModel)]="Soluongton">
+                        </div>
+                    </div>
+                    <div>
+                        <div class="AddNewBook__Body-BookCategory">
+                            <span>Thể Loại: </span>
+                            <ng-multiselect-dropdown [placeholder]="'Chọn Chủ Đề'" [settings]="dropdownSettings"
+                                [data]="dropdownList" (onDeSelect)="onItemDeSelectCD($event)"
+                                (onSelect)="onItemSelectCD($event)" [(ngModel)]="multiselect">
+                            </ng-multiselect-dropdown>
+                        </div>
+                        <div class="AddNewBook__Body-BookAuthor">
+                            <span>Tác Giả: </span>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select an option</mat-label>
+                                <mat-select (selectionChange)="selectedTG($event.value)" [(value)]="Authorselected">
+                                    <mat-option *ngFor="let tacgia of TG" [value]="tacgia._id">{{tacgia.TenTG}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <div class="AddNewBook__Body-BookAuthor">
+                            <span>Nhà Xuất Bản: </span>
+                            <mat-form-field appearance="fill">
+                                <mat-label>Select an option</mat-label>
+                                <mat-select (selectionChange)="selectedNXB($event.value)" [(value)]="NXBselected">
+                                    <mat-option *ngFor="let nhaxuatban of NXB" [value]="nhaxuatban._id">
+                                        {{nhaxuatban.TenNXB}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+
+                        <div class="AddNewBook__Body-BookImage">
+                            <span>Ảnh: </span>
+                            <input type="file" accept="image/*" (change)="onFileSelected($event)">
+                            <div class="AddNewBook__Body-Image" *ngIf="img">
+                                <img src="{{img}}" alt="Demo Ảnh">
+                            </div>
+                        </div>
+                        <div (click)="InsertBook()" class="AddNewBook__Body-BtnAdd">
+                            Thêm Sách
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
+</div>

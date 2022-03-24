@@ -1,0 +1,101 @@
+<div class="Cart__Container">
+    <h3>GIỎ HÀNG</h3>
+    <h3>{{mess}}</h3>
+    <div class="Cart__Body">
+        <div class="Cart__Products">
+            <div class="Cart__Products-Header">
+                <div class="Checkbox__All-Product">
+                    <input type="checkbox" name="" class="checkbox" id="checkbox__all-product" (click)="onCheckAll()">
+                </div>
+                <span>Chọn tất cả (1 sản phẩm)</span>
+                <div class="Title__Count">Số lượng</div>
+                <div class="Title__Price">Giá</div>
+                <div style="flex-basis: 5%;"></div>
+            </div>
+            <div class="Cart__Products-Empty" *ngIf="ifEmpty()">
+                <div class="Cart__Products-Empty-image">
+                    <img src="https://i.pinimg.com/originals/ec/0c/0c/ec0c0c652f7a9fb965bf08f45c4403fe.gif" alt="">
+                </div>
+                <span>Bạn hiện chưa chọn sách nào</span>
+            </div>
+            <div class="Cart__Products-Body" *ngFor="let book of Book">
+                <div class="Cart__Products-item">
+                    <div class="checkbox__product">
+                        <input type="checkbox" name="" class="checkbox" id="checkbox__product">
+                    </div>
+                    <div class="imgbook">
+                        <img src="{{book.Anh}}" class="Img__Book" alt="">
+                    </div>
+                    <a class="Cart__Products-BookName">
+                        {{book.Mota}}
+                    </a>
+                    <div class="Cart__Products-group-product-info">
+
+                        <div class="Cart__Products-Count">
+                            <div class="Cart__Products-Button">
+                                <button (click)="lessProducts(book.idcart)">
+                                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-remove.svg"
+                                        alt="remove-icon" width="20" height="20">
+                                </button>
+                                <input type="text" readonly value="{{book.count}}" id="inputNum" placeholder="1"
+                                    class="input">
+                                <button (click)="moreProducts(book.idcart)">
+                                    <img src="https://frontend.tikicdn.com/_desktop-next/static/img/pdp_revamp_v2/icons-add.svg"
+                                        alt="add-icon" width="20" height="20">
+                                </button>
+                            </div>
+                        </div>
+                        <span>{{book.unitprice * book.count|number:'1.3'}}đ</span>
+                        <mat-icon (click)="delete(book.idcart)">remove_shopping_cart</mat-icon>
+                    </div>
+
+                </div>
+            </div>
+            <div class="Cart__Products-Footer" *ngIf="ifAllCheck()" (click)="onDeleteAll()">
+                Xóa Tất Cả
+            </div>
+        </div>
+        <div class="Cart__Bill" *ngIf="checkUserLogin()">
+            <h2>HÓA ĐƠN</h2>
+            <div class="Cart__Bill-Info" *ngFor="let User of UserLogin">
+                <span class="Cart__Bill-Info-Name">
+                    Tên: {{User.HoTen}}
+                </span>
+                <span class="Cart__Bill-Info-Email">
+                    Email: {{User.Email}}
+                </span>
+                <span class="Cart__Bill-Info-Phone">
+                    SDT: {{User.DienthoaiKH}}
+                </span>
+                <span class="Cart__Bill-Info-Date">
+                    Ngày Giao Dịch: {{Date}}
+                </span>
+            </div>
+            <div class="Cart__Bill-Pay">
+                <div class="Cart__Bill-Pay-Price">
+                    Tổng <span>{{Total|number:'1.3'}}đ</span>
+                </div>
+                <div class="Cart__Bill-Pay-BtnPay" (click)="DatHang()">
+                    Thanh Toán
+                </div>
+            </div>
+        </div>
+        <div class="Cart__Bill" *ngIf="!checkUserLogin()">
+            <h2>HÓA ĐƠN</h2>
+            <div class="Cart__Bill-Info">
+                <span>Vui Lòng Đăng Nhập</span>
+                <span class="Cart__Bill-Info-Date">
+                    Ngày Giao Dịch: {{Date | date: 'dd/MM/yyyy'}}
+                </span>
+            </div>
+            <div class="Cart__Bill-Pay">
+                <div class="Cart__Bill-Pay-Price">
+                    Tổng <span>{{Total|number:'1.3'}}đ</span>
+                </div>
+                <div class="Cart__Bill-Pay-BtnPay" (click)="DatHang()">
+                    Thanh Toán
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
