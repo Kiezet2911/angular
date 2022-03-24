@@ -109,9 +109,9 @@
     }
     
 }
-@media screen and (max-width: 413px) {
+@media screen and (max-width: 415px) {
     .container{
-        width: 100vw;
+        width: 95%;
     }
     .Book__details{
         width: 100% !important;
@@ -121,12 +121,14 @@
     }
         .Book__image{
             margin: 0;
+            width: 60%;
+            height: 300px;
         }
         .Book__info{
             margin-top: 30px;
             padding: 0px 20px 0 20px;
             display: flex;
-            width: 100vw;
+            width: 100%;
             flex-flow: column wrap !important;
         }
             .Book__info-Name{

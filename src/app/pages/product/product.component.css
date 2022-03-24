@@ -314,7 +314,7 @@
     }
 }
 
-@media screen and (max-width:413px) {
+@media screen and (max-width:415px) {
     .Product__Container {
         padding: 0;
         margin: 0 auto;
@@ -334,9 +334,12 @@
         padding: 0;
         display: flex;
         flex-flow: row wrap;
-        justify-content: center;
+        justify-content: space-around;
     }
-
+    .Book{
+        width: 150px;
+        margin: 20px 0;
+    }
     mat-form-field {
         width: 100%;
     }

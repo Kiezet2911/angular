@@ -213,7 +213,7 @@
         flex-basis: 25%;
     }
 }
-@media screen and (max-width:413px) {
+@media screen and (max-width:415px) {
     .Cart__Body{
         flex-flow: column nowrap;
     }
@@ -242,6 +242,10 @@
         }
         .Cart__Products-item{
             flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .imgbook img{
+            height: 130px;
         }
             .Cart__Products-group-product-info{
                 margin: 20px 0 0 10px ;

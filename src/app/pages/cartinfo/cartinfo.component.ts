@@ -75,7 +75,6 @@ export class CartinfoComponent implements OnInit {
           }
           //
           let Body = new reqDatHangnodategiao(false, false, this.Date, this.Total, data.id, arrayidBook, arraycountBook);
-          console.log(Body)
           this.bookapi.DatHang(Body).subscribe(data => {
             //Nếu Có biến Mess Tức Có Sách Bị Vượt Quá Số Lượng Hiện Có Trong Kho Hàng
             if (data.Messager != null) {
@@ -89,7 +88,7 @@ export class CartinfoComponent implements OnInit {
                   } else {
                     this.mess = "Đặt Hàng Thành Công\nXin Vui Lòng Kiểm Tra Lịch Sử Mua Hàng"
                     if (this.UserLogin[0].Email != null || typeof this.UserLogin[0].Email != "undefined" || this.UserLogin[0].Email != "") {
-                      this.bookapi.SendMail(this.UserLogin[0].Email).subscribe(res => {
+                      this.bookapi.SendMail(this.UserLogin[0].Email).subscribe(res => {                     
                       })
                     }
                     sessionStorage.removeItem("listCart")
