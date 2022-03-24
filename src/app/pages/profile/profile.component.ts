@@ -70,6 +70,7 @@ export class ProfileComponent implements OnInit {
           for (let i = 0; i < this.imgchoose.files.length; i++) {
             formdata.append("img", this.imgchoose.files[i]);
           }
+          console.log(formdata)
           this.bookstoreapi.UploadImage(formdata).subscribe(res => {
             let linkAnh = "https://bookingapiiiii.herokuapp.com/open-image/" + res.data;
             let bodyProfile = new reqprofile(this.data.id, linkAnh, this.hovaten, this.Email, this.diachi, this.sdt, this.date);
