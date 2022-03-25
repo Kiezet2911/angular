@@ -71,7 +71,7 @@ export class ProfileComponent implements OnInit {
             formdata.append("img", this.imgchoose.files[i]);
           }
           this.bookstoreapi.UploadImage(formdata).subscribe(res => {
-            let linkAnh = "https://bookingapiiiii.herokuapp.com/open-image/" + res.data;
+            let linkAnh = res.data;
             let bodyProfile = new reqprofile(this.data.id, linkAnh, this.hovaten, this.Email, this.diachi, this.sdt, this.date);
             this.bookstoreapi.putupdateprofile(bodyProfile).subscribe(
               data => {

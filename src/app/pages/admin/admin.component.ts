@@ -76,7 +76,7 @@ export class AdminComponent implements OnInit {
   selectedItems = [];
   dropdownSettings = {};
 
-  SearchBill:any;
+  SearchBill: any;
   selectedValue: string = '';
   foods = [
     'steak-0',
@@ -188,7 +188,7 @@ export class AdminComponent implements OnInit {
         formdata.append("img", this.AnhChoose1.files[i]);
       }
       this.bookapi.UploadImage(formdata).subscribe(res => {
-        let linkAnh = "https://bookingapiiiii.herokuapp.com/open-image/" + res.data;
+        let linkAnh = res.data;
         this.bookapi.set1Banner(linkAnh, "Anh1").subscribe(da => {
           if (da._id != null) {
             alert("Cập Nhật Thành Công")
@@ -205,7 +205,7 @@ export class AdminComponent implements OnInit {
         formdata.append("img", this.AnhChoose2.files[i]);
       }
       this.bookapi.UploadImage(formdata).subscribe(res => {
-        let linkAnh = "https://bookingapiiiii.herokuapp.com/open-image/" + res.data;
+        let linkAnh = res.data;
         this.bookapi.set1Banner(linkAnh, "Anh2").subscribe(da => {
           if (da._id != null) {
             alert("Cập Nhật Thành Công")
@@ -222,7 +222,7 @@ export class AdminComponent implements OnInit {
         formdata.append("img", this.AnhChoose3.files[i]);
       }
       this.bookapi.UploadImage(formdata).subscribe(res => {
-        let linkAnh = "https://bookingapiiiii.herokuapp.com/open-image/" + res.data;
+        let linkAnh = res.data;
         this.bookapi.set1Banner(linkAnh, "Anh3").subscribe(da => {
           if (da._id != null) {
             alert("Cập Nhật Thành Công")
@@ -477,7 +477,7 @@ export class AdminComponent implements OnInit {
         formdata.append("img", this.imgChoose.files[i]);
       }
       this.bookapi.UploadImage(formdata).subscribe(res => {
-        let linkAnh = "https://bookingapiiiii.herokuapp.com/open-image/" + res.data;
+        let linkAnh = res.data;
         let body = new reqinsertbook(this.TenSach, this.Giaban, this.Mota, linkAnh, this.Soluongton, this.IDCD, this.IDNXB, this.IDTG);
         this.bookapi.InsertBook(body).subscribe(da => {
           if (da._id != null) {
