@@ -19,11 +19,13 @@ export class AdminComponent implements OnInit {
   user: any = ''
   DonHanglist: any = ''
   HangTon: any = ''
+  deleted: any = ''
   DonHanglistByID: any = ''
   BookByDonHang: any = ''
   p: any = "";
   pdialog: any = "";
   pHangTon: any = "";
+  pdeleted: any = "";
   select: any = "Khách Hàng";
   check: boolean = false;
   mess: any = '';
@@ -92,6 +94,7 @@ export class AdminComponent implements OnInit {
     this.getAllTaiKhoan(this.check)
     this.getDonHang()
     this.GetHangTon()
+    this.getdeleted()
     this.CallAll()
 
     this.dropdownSettings = {
@@ -256,6 +259,13 @@ export class AdminComponent implements OnInit {
   GetHangTon() {
     this.bookapi.getAllBook().subscribe(data => {
       this.HangTon = data
+    })
+  }
+
+  //Get deleted
+  getdeleted() {
+    this.bookapi.getdeleted().subscribe(data => {
+      this.deleted = data
     })
   }
 
@@ -510,6 +520,7 @@ export class AdminComponent implements OnInit {
     this.bookapi.DeteleBook(id).subscribe(data => {
       if (data != null) {
         this.GetHangTon()
+        this.getdeleted()
         alert("Xóa Thành Công")
       } else {
         alert("Xóa Thất Bại")
@@ -526,6 +537,7 @@ export class AdminComponent implements OnInit {
           alert("Đã Xóa Chủ Đề Và Tất Cả Sách Có Liên Quan")
           this.CallAll()
           this.GetHangTon()
+          this.getdeleted()
         })
       }
     }
@@ -541,6 +553,7 @@ export class AdminComponent implements OnInit {
           alert("Đã Xóa Tác Giả Và Tất Cả Sách Có Liên Quan")
           this.CallAll()
           this.GetHangTon()
+          this.getdeleted()
         })
       }
 
@@ -556,6 +569,7 @@ export class AdminComponent implements OnInit {
           alert("Đã Xóa Nhà Xuất Bản Và Tất Cả Sách Có Liên Quan")
           this.CallAll()
           this.GetHangTon()
+          this.getdeleted()
         })
       }
     }
@@ -563,6 +577,7 @@ export class AdminComponent implements OnInit {
 
   changeText(event: any) {
     this.pHangTon = 1;
+    this.pdeleted = 1;
   }
 
   changeTextBill(event: any) {

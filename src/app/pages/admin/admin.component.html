@@ -416,5 +416,31 @@
                 </div>
             </div>
         </mat-tab>
+
+        <mat-tab label="Sách Bị Xóa">
+
+            <div class="Admin__Storage-Header">
+
+                <div class="Title__Product-Image">Ảnh</div>
+                <div class="Title__Product-Name">Tên Sách</div>
+                <div class="Title__Product-Count">Số Lượng Tồn</div>
+            </div>
+
+            <div class="Admin__Storage-Body">
+                <input type="text" class="form-control" (ngModelChange)="changeText($event)" placeholder="Search..."
+                    [(ngModel)]="Search" />
+                <div class="Admin__Storage-Details"
+                    *ngFor="let book of deleted  | filter: Search  | paginate: { itemsPerPage: 3, currentPage: pdeleted, id: 'deleted' }">
+                    <div class="Product__Image">
+                        <img style="width: 35%;" src="{{book.Anhbia}}" alt="">
+                    </div>
+                    <div class="Product__Name">{{book.Tensach}}</div>
+                    <div class="Product__Count">{{book.soluongban}} quyển</div>
+                </div>
+                <pagination-controls class="my-pagination" (pageChange)="pdeleted = $event" id="deleted">
+                </pagination-controls>
+            </div>
+        </mat-tab>
+
     </mat-tab-group>
 </div>
