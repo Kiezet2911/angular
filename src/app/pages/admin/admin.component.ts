@@ -576,12 +576,18 @@ export class AdminComponent implements OnInit {
   }
 
   changeText(event: any) {
-    this.pHangTon = 1;
-    this.pdeleted = 1;
+    this.pHangTon = '';
+    this.pdeleted = '';
   }
 
   changeTextBill(event: any) {
-    this.p = 1;
+    this.p = '';
+  }
+
+  changeStatus(event: any) {
+    let select = <HTMLSelectElement>document.getElementById("Setting__Status");
+    //get value and waiting call API
+    select.value;
   }
 }
 

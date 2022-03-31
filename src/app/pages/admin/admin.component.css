@@ -104,7 +104,9 @@ mat-tab-group {
 .Bill__Setting{
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-basis: 30%;
+  flex-wrap: wrap;
 }
 .User__setting-deleteAccount{
   width: fit-content;
@@ -122,7 +124,15 @@ mat-tab-group {
   cursor: pointer;
   transition: 1s;
 }
-
+.Bill__Setting-status{
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+}
+.Bill__Setting-status select{
+  width: 100px;
+  padding: 5px;
+}
 .Bill__Setting-details{
   margin-right: 10px;
 }
@@ -471,6 +481,9 @@ mat-form-field{
     text-align: center;
     flex-basis: 30%;
   }
+  .Title__BillID{
+    flex-basis: 55%;
+  }
   .Title__infoPay{
     flex-basis: 68%;
   }
@@ -490,6 +503,11 @@ mat-form-field{
 
   .AddNewBook__Body{
     width: 100%;
+  }
+  .Bill__Setting-status select{
+    padding: 5px;
+    margin-top: 10px;
+    width: 70px;
   }
 }
 

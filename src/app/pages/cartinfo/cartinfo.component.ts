@@ -25,7 +25,7 @@ export class CartinfoComponent implements OnInit {
 
   actionIn_ngOnInit() {
     sessionStorage.removeItem("Mess")
-    this.Date = new Date();
+    this.Date = new Date().toLocaleDateString();
     this.getbook();
     this.Sum();
     this.checkUserLogin();

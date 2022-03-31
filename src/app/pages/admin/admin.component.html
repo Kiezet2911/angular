@@ -166,6 +166,12 @@
                         <div class="Bill__Setting-details" (click)="showDialog(DonHang.id)">
                             Chi Tiết
                         </div>
+                        <div class="Bill__Setting-status">
+                            <select id="Setting__Status" (ngModelChange)="changeStatus($event)">
+                                <option value="false">Chưa Giao</option>
+                                <option value="true">Đã Giao</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -441,6 +447,5 @@
                 </pagination-controls>
             </div>
         </mat-tab>
-
     </mat-tab-group>
 </div>
