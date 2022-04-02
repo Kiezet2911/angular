@@ -20,8 +20,12 @@
                         {{donhang.TongTien|number:'1.3'}} đ</span>
                 </span>
                 <span *ngIf="!donhang.Tinhtranggiaohang">
+
                     <span style="font-weight: bold;">Tình Trạng: </span><span style="color: red; font-weight: 600;">
                         Chưa Giao Hàng</span>
+                </span>
+                <span *ngIf="donhang.Tinhtranggiaohang">
+                    <span style="font-weight: bold;">Ngày Giao Hàng: </span> {{donhang.Ngaygiao | date: 'dd/MM/yyyy'}}
                 </span>
                 <span *ngIf="donhang.Tinhtranggiaohang">
                     <span style="font-weight: bold;">Tình Trạng: </span><span
@@ -158,7 +162,7 @@
                 <div class="Admin__HistoryPay-Details"
                     *ngFor="let DonHang of DonHanglist | filter: SearchBill  | paginate: { itemsPerPage: 3, currentPage: p, id: 'DonHang'  }">
 
-                    <div class="Bill__BillID">{{DonHang.id}}</div>
+                    <div class="Bill__BillID" id="test1">{{DonHang.id}}</div>
                     <div class="Bill__Username">{{DonHang.HoTen}}</div>
                     <div class="Bill__DatePay">{{DonHang.Ngaydat | date: 'dd/MM/yyyy'}}</div>
 
@@ -167,10 +171,14 @@
                             Chi Tiết
                         </div>
                         <div class="Bill__Setting-status">
-                            <select id="Setting__Status" (ngModelChange)="changeStatus($event)">
-                                <option value="false">Chưa Giao</option>
-                                <option value="true">Đã Giao</option>
+                            <div class="Status" style="color: rgb(10, 103, 10); font-weight: 700;" *ngIf="DonHang.Tinhtranggiaohang">
+                                Đã Giao Hàng
+                            </div>
+                            <select *ngIf="!DonHang.Tinhtranggiaohang" (change)="changeStatus(DonHang.id)" id="Setting__Status">
+                                <option value="true" >Đã Giao Hàng</option>
+                                <option selected hidden value="">Chưa Giao Hàng</option>
                             </select>
+
                         </div>
                     </div>
                 </div>

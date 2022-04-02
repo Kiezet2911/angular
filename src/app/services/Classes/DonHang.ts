@@ -57,3 +57,21 @@ export class reqCTDonHang {
 export interface resCTDonHang {
     Messager: string;
 }
+
+
+//trang thai giao
+
+export class reqChang_Stautus {
+    id:string;
+    Tinhtranggiaohang = true;
+    constructor(id:string,Tinhtranggiaohang:boolean){
+        this.id =id;
+        this.Tinhtranggiaohang=Tinhtranggiaohang
+    }
+
+}
+
+export interface reqChang_Stautus {
+    id : string;
+    Tinhtranggiaohang: boolean;
+}

@@ -5,7 +5,7 @@ import { Account, reqRegister, resRegister } from "./Classes/Login";
 import { Banner, Book, Book1, Category, resinsertbook, reqinsertbook, newBook, reqBookSoluongTon } from "./Classes/Book";
 import { resimg, resprofile } from "./Classes/profile";
 import { reqpass, respass } from './Classes/changepass';
-import { reqCTDonHang, resCTDonHang, resDatHang } from "./Classes/DonHang";
+import { reqCTDonHang, resCTDonHang, resDatHang ,reqChang_Stautus} from "./Classes/DonHang";
 import { resALL, resNXB } from "./Classes/NXB";
 import { resAuthor } from "./Classes/author";
 
@@ -166,4 +166,14 @@ export class BookStoreAPI {
     AddNewAuthor(bodyAuthor: any) {
         return this.httclient.post<resAuthor>(this.url + "/tacgia", bodyAuthor)
     }
+
+    //sửa trạng thái giao hàng
+    change(id: any){
+        let body = {
+            "id": id,
+            "Tinhtranggiaohang": true
+          }
+        return this.httclient.put(this.url + "/DonHang" , body);
+    }
+   
 }

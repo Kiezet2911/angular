@@ -49,6 +49,8 @@ export class AdminComponent implements OnInit {
   Giaban: any = ''
   NXB: any = ''
 
+  findidorder: any = '';
+
   //Ảnh Hiển Thị Lên Html
   img: any = ''
   Anh1: any = ''
@@ -576,19 +578,24 @@ export class AdminComponent implements OnInit {
   }
 
   changeText(event: any) {
-    this.pHangTon = '';
-    this.pdeleted = '';
+    this.pHangTon = 1;
+    this.pdeleted = 1;
   }
 
   changeTextBill(event: any) {
-    this.p = '';
+    this.p = 1;
   }
 
-  changeStatus(event: any) {
+  changeStatus(id: any) {
     let select = <HTMLSelectElement>document.getElementById("Setting__Status");
     //get value and waiting call API
-    select.value;
+    this.bookapi.change(id).subscribe(data => {
+      this.getDonHang();
+
+    })
   }
+
+
 }
 
 
