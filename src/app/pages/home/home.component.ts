@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BookStoreAPI } from "../../services/bookstore.services"
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -39,4 +40,7 @@ export class HomeComponent implements OnInit {
     console.log('was clicked');
     this.router.navigate(['detail', id]);
   }
+
+  
+
 }

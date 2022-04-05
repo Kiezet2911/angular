@@ -32,6 +32,8 @@ import { AuthGuard, isLogined } from './Auth/auth.guard';
 import { BookdetailsComponent } from './pages/bookdetails/bookdetails.component';
 import { CartinfoComponent } from './pages/cartinfo/cartinfo.component';
 import { HistorypayComponent } from './pages/historypay/historypay.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,7 @@ import { HistorypayComponent } from './pages/historypay/historypay.component';
     NgxPaginationModule,
     Ng2OrderModule,
     MatTabsModule,
+    CarouselModule,
     NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [AuthGuard, isLogined],
