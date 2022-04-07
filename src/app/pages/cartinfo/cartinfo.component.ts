@@ -36,6 +36,7 @@ export class CartinfoComponent implements OnInit {
     if (this.checkUserLogin()) {
       this.bookapi.getProfile(JSON.parse(sessionStorage.getItem("UserLogin")!).id).subscribe(data => {
         this.UserLogin = [data]
+        sessionStorage.setItem("UserLogin", JSON.stringify(data));
       })
     }
   }
@@ -63,7 +64,10 @@ export class CartinfoComponent implements OnInit {
 
         let data = JSON.parse(sessionStorage.getItem("UserLogin")!);
         let isNull_login = data.id == null
-
+        if (data.Email == null) {
+          this.router.navigate(['profile']);
+          return;
+        }
         if (!isNull_login) {
           //
           const arrayidBook: any[] = [];
@@ -88,7 +92,7 @@ export class CartinfoComponent implements OnInit {
                   } else {
                     this.mess = "Đặt Hàng Thành Công\nXin Vui Lòng Kiểm Tra Lịch Sử Mua Hàng"
                     if (this.UserLogin[0].Email != null || typeof this.UserLogin[0].Email != "undefined" || this.UserLogin[0].Email != "") {
-                      this.bookapi.SendMail(this.UserLogin[0].Email).subscribe(res => {                     
+                      this.bookapi.SendMail(this.UserLogin[0].Email).subscribe(res => {
                       })
                     }
                     sessionStorage.removeItem("listCart")
