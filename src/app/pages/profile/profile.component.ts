@@ -61,6 +61,8 @@ export class ProfileComponent implements OnInit {
   updateInfo() {
     let check: boolean[] = []
     check.push(!(this.hovaten == "")); check.push(!(this.Email == "")); check.push(!(this.diachi == "")); check.push(!(this.sdt == "")); check.push(!(this.date == ""));
+    check.push(!(this.hovaten == null)); check.push(!(this.Email == null)); check.push(!(this.diachi == null)); check.push(!(this.sdt == null)); check.push(!(this.date == null));
+    
     let isTrue = (va: boolean) => va === true
 
     if (check.every(isTrue)) {
